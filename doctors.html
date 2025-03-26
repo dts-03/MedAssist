@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MedAssist | Our Doctors</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">
+                <i class="fas fa-heart-pulse" style="color: #ef4444;"></i>
+                <span>MedAssist</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="#" class="active">Doctors</a>
+                <a href="contact.html">Contact</a>
+                <a href="login.html" class="login-link">
+                    <i class="fas fa-sign-in-alt"></i>
+                    Login
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero-section">
+            <h1>Our Medical Experts</h1>
+            <p class="subtitle">Consult with our experienced healthcare professionals</p>
+        </header>
+
+        <div class="doctors-filter">
+            <div class="search-section">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="doctorSearch" placeholder="Search by name, specialty, or location...">
+                    <button class="search-clear" id="clearSearch">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="search-tags" id="searchTags">
+                    <!-- Search tags will be added here dynamically -->
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3><i class="fas fa-filter"></i> Filter By</h3>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-specialty="all">
+                        <i class="fas fa-user-md"></i>
+                        All Specialists
+                        <span class="count">12</span>
+                    </button>
+                    <button class="filter-btn" data-specialty="General Medicine">
+                        <i class="fas fa-stethoscope"></i>
+                        General Medicine
+                        <span class="count">4</span>
+                    </button>
+                    <button class="filter-btn" data-specialty="Cardiology">
+                        <i class="fas fa-heartbeat"></i>
+                        Cardiology
+                        <span class="count">3</span>
+                    </button>
+                    <button class="filter-btn" data-specialty="Pediatrics">
+                        <i class="fas fa-baby"></i>
+                        Pediatrics
+                        <span class="count">2</span>
+                    </button>
+                    <button class="filter-btn" data-specialty="Neurology">
+                        <i class="fas fa-brain"></i>
+                        Neurology
+                        <span class="count">2</span>
+                    </button>
+                    <button class="filter-btn" data-specialty="Dermatology">
+                        <i class="fas fa-allergies"></i>
+                        Dermatology
+                        <span class="count">1</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="advanced-filters">
+                <div class="filter-group">
+                    <label><i class="fas fa-map-marker-alt"></i> Location</label>
+                    <select id="locationFilter" class="filter-select">
+                        <option value="all">All Locations</option>
+                        <option value="New York">New York</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="Chicago">Chicago</option>
+                        <option value="Houston">Houston</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label><i class="fas fa-clock"></i> Availability</label>
+                    <select id="availabilityFilter" class="filter-select">
+                        <option value="all">All Availability</option>
+                        <option value="online">Available Now</option>
+                        <option value="busy">Busy</option>
+                        <option value="offline">Away</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label><i class="fas fa-sort-amount-down"></i> Sort By</label>
+                    <select id="sortBy" class="filter-select">
+                        <option value="rating">Highest Rated</option>
+                        <option value="experience">Most Experienced</option>
+                        <option value="name">Name (A-Z)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="active-filters" id="activeFilters">
+                <!-- Active filters will be shown here -->
+            </div>
+        </div>
+
+        <main class="doctors-grid">
+            <div class="doctor-card" data-specialty="General Medicine" data-location="New York" data-availability="online">
+                <div class="doctor-image">
+                    <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="Dr. Sarah Johnson">
+                    <div class="availability online">
+                        <span>Available Now</span>
+                    </div>
+                    <div class="quick-info">
+                        <span class="next-available">Next Available: Today</span>
+                        <span class="consultation-fee">Consultation: $100</span>
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <h2>Dr. Sarah Johnson</h2>
+                    <p class="specialty">General Medicine Specialist</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5/5)</span>
+                        <span class="review-count">• 128 Reviews</span>
+                    </div>
+                    <div class="credentials">
+                        <p><i class="fas fa-graduation-cap"></i> MD - Harvard Medical School</p>
+                        <p><i class="fas fa-hospital"></i> 15 years experience</p>
+                        <p><i class="fas fa-certificate"></i> Board Certified</p>
+                        <p><i class="fas fa-map-marker-alt"></i> New York Medical Center</p>
+                    </div>
+                    <div class="specializations">
+                        <span>Family Medicine</span>
+                        <span>Preventive Care</span>
+                        <span>Chronic Disease Management</span>
+                    </div>
+                    <div class="languages">
+                        <p><i class="fas fa-language"></i> Languages: English, Spanish</p>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                        <p><i class="fas fa-envelope"></i> dr.sarah@medassist.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 9:00 AM - 5:00 PM</p>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="appointment-btn primary">
+                            <i class="fas fa-calendar-plus"></i>
+                            Schedule Appointment
+                        </button>
+                        <button class="video-call-btn">
+                            <i class="fas fa-video"></i>
+                            Video Consultation
+                        </button>
+                        <button class="profile-btn">
+                            <i class="fas fa-user-md"></i>
+                            View Full Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="doctor-card" data-specialty="Cardiology" data-location="Los Angeles" data-availability="busy">
+                <div class="doctor-image">
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Dr. Michael Chen">
+                    <div class="availability busy">
+                        <span>In Consultation</span>
+                    </div>
+                    <div class="quick-info">
+                        <span class="next-available">Next Available: Tomorrow</span>
+                        <span class="consultation-fee">Consultation: $150</span>
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <h2>Dr. Michael Chen</h2>
+                    <p class="specialty">Cardiologist</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>(5/5)</span>
+                        <span class="review-count">• 256 Reviews</span>
+                    </div>
+                    <div class="credentials">
+                        <p><i class="fas fa-graduation-cap"></i> MD - Stanford University</p>
+                        <p><i class="fas fa-hospital"></i> 12 years experience</p>
+                        <p><i class="fas fa-certificate"></i> Board Certified</p>
+                        <p><i class="fas fa-map-marker-alt"></i> LA Heart Center</p>
+                    </div>
+                    <div class="specializations">
+                        <span>Interventional Cardiology</span>
+                        <span>Heart Disease</span>
+                        <span>Cardiac Imaging</span>
+                    </div>
+                    <div class="languages">
+                        <p><i class="fas fa-language"></i> Languages: English, Mandarin</p>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> (555) 234-5678</p>
+                        <p><i class="fas fa-envelope"></i> dr.chen@medassist.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Thu: 8:00 AM - 4:00 PM</p>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="appointment-btn primary">
+                            <i class="fas fa-calendar-plus"></i>
+                            Schedule Appointment
+                        </button>
+                        <button class="video-call-btn">
+                            <i class="fas fa-video"></i>
+                            Video Consultation
+                        </button>
+                        <button class="profile-btn">
+                            <i class="fas fa-user-md"></i>
+                            View Full Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="doctor-card" data-specialty="Pediatrics" data-location="Chicago" data-availability="online">
+                <div class="doctor-image">
+                    <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Dr. Emily Rodriguez">
+                    <div class="availability online">
+                        <span>Available Now</span>
+                    </div>
+                    <div class="quick-info">
+                        <span class="next-available">Next Available: Today</span>
+                        <span class="consultation-fee">Consultation: $120</span>
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <h2>Dr. Emily Rodriguez</h2>
+                    <p class="specialty">Pediatrician</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <span>(4/5)</span>
+                        <span class="review-count">• 189 Reviews</span>
+                    </div>
+                    <div class="credentials">
+                        <p><i class="fas fa-graduation-cap"></i> MD - Johns Hopkins University</p>
+                        <p><i class="fas fa-hospital"></i> 10 years experience</p>
+                        <p><i class="fas fa-certificate"></i> Board Certified</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Chicago Children's Hospital</p>
+                    </div>
+                    <div class="specializations">
+                        <span>Child Development</span>
+                        <span>Pediatric Care</span>
+                        <span>Vaccination</span>
+                    </div>
+                    <div class="languages">
+                        <p><i class="fas fa-language"></i> Languages: English, Spanish, Portuguese</p>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> (555) 345-6789</p>
+                        <p><i class="fas fa-envelope"></i> dr.emily@medassist.com</p>
+                        <p><i class="fas fa-clock"></i> Mon-Fri: 8:30 AM - 6:00 PM</p>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="appointment-btn primary">
+                            <i class="fas fa-calendar-plus"></i>
+                            Schedule Appointment
+                        </button>
+                        <button class="video-call-btn">
+                            <i class="fas fa-video"></i>
+                            Video Consultation
+                        </button>
+                        <button class="profile-btn">
+                            <i class="fas fa-user-md"></i>
+                            View Full Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="doctor-card" data-specialty="Neurology" data-location="Houston" data-availability="offline">
+                <div class="doctor-image">
+                    <img src="https://randomuser.me/api/portraits/men/52.jpg" alt="Dr. James Wilson">
+                    <div class="availability offline">
+                        <span>Away</span>
+                    </div>
+                    <div class="quick-info">
+                        <span class="next-available">Next Available: Monday</span>
+                        <span class="consultation-fee">Consultation: $180</span>
+                    </div>
+                </div>
+                <div class="doctor-info">
+                    <h2>Dr. James Wilson</h2>
+                    <p class="specialty">Neurologist</p>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(4.5/5)</span>
+                        <span class="review-count">• 215 Reviews</span>
+                    </div>
+                    <div class="credentials">
+                        <p><i class="fas fa-graduation-cap"></i> MD - Yale School of Medicine</p>
+                        <p><i class="fas fa-hospital"></i> 18 years experience</p>
+                        <p><i class="fas fa-certificate"></i> Board Certified</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Houston Neurology Center</p>
+                    </div>
+                    <div class="specializations">
+                        <span>Neurological Disorders</span>
+                        <span>Stroke Treatment</span>
+                        <span>Headache Management</span>
+                    </div>
+                    <div class="languages">
+                        <p><i class="fas fa-language"></i> Languages: English, French</p>
+                    </div>
+                    <div class="contact-info">
+                        <p><i class="fas fa-phone"></i> (555) 456-7890</p>
+                        <p><i class="fas fa-envelope"></i> dr.wilson@medassist.com</p>
+                        <p><i class="fas fa-clock"></i> Tue-Sat: 9:00 AM - 5:00 PM</p>
+                    </div>
+                    <div class="doctor-actions">
+                        <button class="appointment-btn primary">
+                            <i class="fas fa-calendar-plus"></i>
+                            Schedule Appointment
+                        </button>
+                        <button class="video-call-btn">
+                            <i class="fas fa-video"></i>
+                            Video Consultation
+                        </button>
+                        <button class="profile-btn">
+                            <i class="fas fa-user-md"></i>
+                            View Full Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="pagination">
+            <button class="page-btn" disabled><i class="fas fa-chevron-left"></i></button>
+            <button class="page-btn active">1</button>
+            <button class="page-btn">2</button>
+            <button class="page-btn">3</button>
+            <span class="page-dots">...</span>
+            <button class="page-btn">10</button>
+            <button class="page-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+
+        <footer>
+            <div class="footer-content">
+                <div class="footer-warning">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>Always verify credentials and consult with healthcare professionals for medical advice.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Contact Us</a>
+                </div>
+                <div class="copyright">
+                    <p>&copy; 2024 MedAssist. All Rights Reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Load profile picture from localStorage on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedProfilePic = localStorage.getItem('profilePicture');
+            if (savedProfilePic) {
+                const profileImages = document.querySelectorAll('.profile-image');
+                profileImages.forEach(img => {
+                    img.src = savedProfilePic;
+                });
+            }
+        });
+
+        // Login functionality
+        document.querySelector('.login-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            const authOverlay = document.querySelector('.auth-overlay');
+            if (authOverlay) {
+                authOverlay.classList.add('show');
+            } else {
+                window.location.href = 'login.html';
+            }
+        });
+
+        // Close overlay when clicking outside
+        document.addEventListener('click', function(e) {
+            const authOverlay = document.querySelector('.auth-overlay');
+            if (authOverlay && e.target === authOverlay) {
+                authOverlay.classList.remove('show');
+            }
+        });
+
+        // Enhanced doctor search and filter functionality
+        const doctorSearch = document.getElementById('doctorSearch');
+        const clearSearch = document.getElementById('clearSearch');
+        const searchTags = document.getElementById('searchTags');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const doctorCards = document.querySelectorAll('.doctor-card');
+        const locationFilter = document.getElementById('locationFilter');
+        const availabilityFilter = document.getElementById('availabilityFilter');
+        const sortBy = document.getElementById('sortBy');
+        const activeFilters = document.getElementById('activeFilters');
+
+        let currentSearchTags = new Set();
+        let currentFilters = {
+            specialty: 'all',
+            location: 'all',
+            availability: 'all',
+            sort: 'rating'
+        };
+
+        // Initialize event listeners
+        doctorSearch.addEventListener('input', handleSearch);
+        clearSearch.addEventListener('click', clearSearchInput);
+        filterButtons.forEach(button => {
+            button.addEventListener('click', handleSpecialtyFilter);
+        });
+        locationFilter.addEventListener('change', handleLocationFilter);
+        availabilityFilter.addEventListener('change', handleAvailabilityFilter);
+        sortBy.addEventListener('change', handleSort);
+
+        function handleSearch(e) {
+            const searchTerm = e.target.value.trim();
+            
+            if (searchTerm && !currentSearchTags.has(searchTerm)) {
+                // Add search tag
+                const tag = document.createElement('div');
+                tag.className = 'search-tag';
+                tag.innerHTML = `
+                    ${searchTerm}
+                    <i class="fas fa-times" data-tag="${searchTerm}"></i>
+                `;
+                tag.querySelector('i').addEventListener('click', removeSearchTag);
+                searchTags.appendChild(tag);
+                currentSearchTags.add(searchTerm);
+            }
+
+            filterDoctors();
+        }
+
+        function clearSearchInput() {
+            doctorSearch.value = '';
+            searchTags.innerHTML = '';
+            currentSearchTags.clear();
+            filterDoctors();
+        }
+
+        function removeSearchTag(e) {
+            const tag = e.target.dataset.tag;
+            currentSearchTags.delete(tag);
+            e.target.parentElement.remove();
+            filterDoctors();
+        }
+
+        function handleSpecialtyFilter(e) {
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            e.target.classList.add('active');
+            currentFilters.specialty = e.target.dataset.specialty;
+            updateActiveFilters();
+            filterDoctors();
+        }
+
+        function handleLocationFilter(e) {
+            currentFilters.location = e.target.value;
+            updateActiveFilters();
+            filterDoctors();
+        }
+
+        function handleAvailabilityFilter(e) {
+            currentFilters.availability = e.target.value;
+            updateActiveFilters();
+            filterDoctors();
+        }
+
+        function handleSort(e) {
+            currentFilters.sort = e.target.value;
+            sortDoctors();
+        }
+
+        function updateActiveFilters() {
+            activeFilters.innerHTML = '';
+            
+            if (currentFilters.specialty !== 'all') {
+                addActiveFilter('Specialty', currentFilters.specialty);
+            }
+            if (currentFilters.location !== 'all') {
+                addActiveFilter('Location', currentFilters.location);
+            }
+            if (currentFilters.availability !== 'all') {
+                addActiveFilter('Availability', currentFilters.availability);
+            }
+        }
+
+        function addActiveFilter(type, value) {
+            const filter = document.createElement('div');
+            filter.className = 'active-filter';
+            filter.innerHTML = `
+                ${type}: ${value}
+                <i class="fas fa-times" data-type="${type.toLowerCase()}"></i>
+            `;
+            filter.querySelector('i').addEventListener('click', removeActiveFilter);
+            activeFilters.appendChild(filter);
+        }
+
+        function removeActiveFilter(e) {
+            const type = e.target.dataset.type;
+            currentFilters[type] = 'all';
+            
+            if (type === 'specialty') {
+                filterButtons.forEach(btn => {
+                    if (btn.dataset.specialty === 'all') {
+                        btn.classList.add('active');
+                    } else {
+                        btn.classList.remove('active');
+                    }
+                });
+            }
+            
+            updateActiveFilters();
+            filterDoctors();
+        }
+
+        function filterDoctors() {
+            doctorCards.forEach(card => {
+                const doctorName = card.querySelector('h2').textContent.toLowerCase();
+                const doctorSpecialty = card.querySelector('.specialty').textContent.toLowerCase();
+                const cardSpecialty = card.dataset.specialty;
+                const cardLocation = card.dataset.location;
+                const cardAvailability = card.dataset.availability;
+                
+                // Check if matches any search tags
+                const matchesSearch = currentSearchTags.size === 0 || 
+                    Array.from(currentSearchTags).some(tag => {
+                        const searchTerm = tag.toLowerCase();
+                        return doctorName.includes(searchTerm) || 
+                               doctorSpecialty.includes(searchTerm);
+                    });
+                
+                // Check if matches all filters
+                const matchesSpecialty = currentFilters.specialty === 'all' || 
+                                       cardSpecialty === currentFilters.specialty;
+                const matchesLocation = currentFilters.location === 'all' || 
+                                      cardLocation === currentFilters.location;
+                const matchesAvailability = currentFilters.availability === 'all' || 
+                                          cardAvailability === currentFilters.availability;
+
+                card.style.display = (matchesSearch && matchesSpecialty && 
+                                    matchesLocation && matchesAvailability) ? 'block' : 'none';
+            });
+
+            // After filtering, apply current sort
+            sortDoctors();
+        }
+
+        function sortDoctors() {
+            const cardsArray = Array.from(doctorCards).filter(card => 
+                card.style.display !== 'none'
+            );
+            
+            cardsArray.sort((a, b) => {
+                switch(currentFilters.sort) {
+                    case 'rating':
+                        const ratingA = parseFloat(a.querySelector('.rating span').textContent);
+                        const ratingB = parseFloat(b.querySelector('.rating span').textContent);
+                        return ratingB - ratingA;
+                    case 'experience':
+                        const expA = parseInt(a.querySelector('.credentials p:nth-child(2)').textContent);
+                        const expB = parseInt(b.querySelector('.credentials p:nth-child(2)').textContent);
+                        return expB - expA;
+                    case 'name':
+                        const nameA = a.querySelector('h2').textContent;
+                        const nameB = b.querySelector('h2').textContent;
+                        return nameA.localeCompare(nameB);
+                    default:
+                        return 0;
+                }
+            });
+
+            const doctorsGrid = document.querySelector('.doctors-grid');
+            cardsArray.forEach(card => doctorsGrid.appendChild(card));
+        }
+
+        // Initialize pagination
+        const pageButtons = document.querySelectorAll('.page-btn');
+        pageButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (!button.disabled) {
+                    pageButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    // Add pagination logic here
+                }
+            });
+        });
+    </script>
+</body>
+</html> 
